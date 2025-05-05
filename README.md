@@ -1,5 +1,5 @@
 # Store
-Mój projekt na zaliczenie<
+Mój projekt na zaliczenie
 
     Zasadnicza kwestia nie wiem co należy zrobić z bazą danych, gdyż stoi ona u mnie. Gdy klonowałem repozytorium na inny komputer bez niej nie da sie uruchomić aplikacji, chyba że podepnie się własną lecz wtedy nie będzie widać produktów które dodałem a wg. zasad zaliczenia mieliśmy ich dodać 5-10.
   
