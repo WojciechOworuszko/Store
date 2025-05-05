@@ -1,0 +1,68 @@
+﻿@model Store.Models.Uzytkownicy
+
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<h1>Rejestracja</h1>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form asp-action="Rejestracja" method="post">
+    <div class="form-group">
+        <label asp-for="Imie"></label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nazwisko"></label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="login"></label>
+        <input asp-for="login" class="form-control" />
+        <span asp-validation-for="login" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="haslo"></label>
+        <input asp-for="haslo" class="form-control" type="password" />
+        <span asp-validation-for="haslo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Miasto"></label>
+        <input asp-for="Miasto" class="form-control" />
+        <span asp-validation-for="Miasto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="KodPocztowy"></label>
+        <input asp-for="KodPocztowy" class="form-control" />
+        <span asp-validation-for="KodPocztowy" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UlicaNumerDomuMieszkania"></label>
+        <input asp-for="UlicaNumerDomuMieszkania" class="form-control" />
+        <span asp-validation-for="UlicaNumerDomuMieszkania" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NumerTelefonu"></label>
+        <input asp-for="NumerTelefonu" class="form-control" />
+        <span asp-validation-for="NumerTelefonu" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Zarejestruj się</button>
+</form>
+

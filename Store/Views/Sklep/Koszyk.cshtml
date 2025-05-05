@@ -1,0 +1,45 @@
+﻿@model List<Store.Models.ElementKoszyka>
+
+@{
+    ViewData["Title"] = "Twój koszyk";
+}
+
+<h1>Twój koszyk</h1>
+
+@if (!Model.Any())
+{
+    <p>Koszyk jest pusty.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena</th>
+                <th>Wartość</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nazwa</td>
+                    <td>@item.Ilosc</td>
+                    <td>@item.Cena</td>
+                    <td>@item.Wartosc</td>
+                    <td>
+                        <a asp-action="UsunZKoszyka" asp-route-id="@item.ProduktID">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p><strong>Suma: @Model.Sum(x => x.Wartosc) zł</strong></p>
+
+    <a asp-action="Finalizacja" class="btn btn-success">Złóż zamówienie</a>
+
+}

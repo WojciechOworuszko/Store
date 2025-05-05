@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Store.Models.Produkt>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Produkty</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary">Dodaj nowy produkt</a>
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>Zdjęcie</th>
+            <th>@Html.DisplayNameFor(model => model.Nazwa)</th>
+            <th>@Html.DisplayNameFor(model => model.Cena)</th>
+            <th>@Html.DisplayNameFor(model => model.ilosc)</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ZdjecieUrl))
+                    {
+                        <img src="@item.ZdjecieUrl" alt="miniatura" style="height: 60px; width: auto;" class="rounded shadow-sm" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">brak</span>
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Nazwa)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cena)</td>
+                <td>@Html.DisplayFor(modelItem => item.ilosc)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Usuń</a> |
+                    <a asp-action="DodajDoKoszyka" asp-route-id="@item.ID">Dodaj do koszyka</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

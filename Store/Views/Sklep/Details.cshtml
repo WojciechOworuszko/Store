@@ -1,0 +1,32 @@
+﻿@model Store.Models.Produkt
+
+@{
+    ViewData["Title"] = "Szczegóły produktu";
+}
+
+<h2>@Model.Nazwa</h2>
+
+@if (!string.IsNullOrEmpty(Model.ZdjecieUrl))
+{
+    <img src="@Model.ZdjecieUrl" alt="Zdjęcie produktu" class="img-thumbnail mb-3" style="max-height: 300px;" />
+}
+
+<table class="table">
+    <tr>
+        <th>Cena:</th>
+        <td>@Model.Cena zł</td>
+    </tr>
+    <tr>
+        <th>Dostępność:</th>
+        <td>@Model.ilosc szt.</td>
+    </tr>
+    <tr>
+        <th>Opis:</th>
+        <td>@Model.Opis</td>
+    </tr>
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Powrót</a>
+    <a asp-action="DodajDoKoszyka" asp-route-id="@Model.ID" class="btn btn-success">Dodaj do koszyka</a>
+</div>
